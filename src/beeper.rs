@@ -11,6 +11,7 @@ pub fn beep() {
                            .stderr(Stdio::null())
                            .spawn()
                            .unwrap_or_else(|_| panic!("Could not run the beeper"));
-    ::std::thread::sleep(Duration::from_millis(100));
+    ::std::thread::sleep(Duration::from_millis(200));
     let _ = cmd.kill();
+    let _ = cmd.wait();
 }
